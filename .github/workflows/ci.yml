@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libelf-dev binutils gcc
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@8808a5b2eb3c4f2e96d2b6351d368e7ec815db99
+        with:
+          version: 0.14.0
+
+      - name: Run test suite
+        run: /bin/sh scripts/test-offline.sh
+
+      - name: Run asserting demo
+        run: /bin/sh scripts/demo-offline.sh --assert

@@ -1,0 +1,9 @@
+{
+  "entries": [
+    {
+      "id": "sample-companion-match",
+      "elf": "fixtures/sample.bin",
+      "companion": "fixtures/sample.debug"
+    }
+  ]
+}

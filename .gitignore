@@ -1,0 +1,15 @@
+# Zig build artifacts
+zig-cache/
+zig-out/
+.zig-cache/
+*.o
+*.a
+*.so
+main
+audit
+
+# Temporary test outputs
+/tmp/
+fixtures/sample.full
+fixtures/sample.bin
+fixtures/sample.debug
