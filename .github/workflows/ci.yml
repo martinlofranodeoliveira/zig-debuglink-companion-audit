@@ -25,9 +25,9 @@ jobs:
           sudo apt-get install -y --no-install-recommends libelf-dev binutils gcc
 
       - name: Setup Zig
-        uses: mlugg/setup-zig@8808a5b2eb3c4f2e96d2b6351d368e7ec815db99
+        uses: mlugg/setup-zig@53fc45b17fe98b52f92ee5ea08ff48a85a3e7eb7
         with:
-          version: 0.14.0
+          version: 0.17.1
 
       - name: Run test suite
         run: /bin/sh scripts/test-offline.sh
